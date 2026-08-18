@@ -1,5 +1,4 @@
-numpy
-pandas
-matplotlib
-rasterio
-shapely
+pandas>=2.0
+matplotlib>=3.8
+jupyter>=1.0
+pytest>=8.0

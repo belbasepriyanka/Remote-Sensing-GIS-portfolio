@@ -1,0 +1,5 @@
+tile,crs,resolution_m,nodata_pct,crs_ok,resolution_ok,qa_status
+T01,EPSG:32617,10,3.55,True,True,PASS
+T03,EPSG:32617,10,6.05,True,True,REVIEW
+T08,EPSG:32617,30,0.58,True,False,REVIEW
+T10,EPSG:4326,10,2.01,False,True,REVIEW
