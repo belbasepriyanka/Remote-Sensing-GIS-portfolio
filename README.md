@@ -1,10 +1,15 @@
 # Priyanka Belbase | Geospatial Data Science Portfolio
 
-Applied projects in **remote sensing, GIS, Python, GeoAI, environmental modeling, validation, and reproducible geospatial workflows**.
+Applied projects in **remote sensing, GIS, Python, GeoAI, environmental modeling, validation, agricultural data science, and reproducible geospatial workflows**.
 
 This repository complements my research-focused repositories with compact, recruiter-friendly projects that demonstrate how I approach data acquisition, quality control, modeling, validation, documentation, and technical delivery.
 
 ## Featured Applied Projects
+
+### [Dragon Fruit Yield & Flowering Forecasting](projects/dragon-fruit-yield-flowering-forecasting)
+A reproducible agricultural ML project integrating repeated field observations, weather, crop growth, nutrient/spectral indicators, flowering, fruit set, and synthetic season-yield outcomes with plant-grouped validation.
+
+**Skills:** agricultural data science • time series • Random Forest • GroupKFold • predictive modeling • weather • phenology • precision agriculture
 
 ### [Geospatial Raster ETL & QA/QC Pipeline](projects/geospatial-raster-etl-qaqc)
 A reproducible Python workflow for raster ingestion, metadata validation, mosaicking, clipping, QA/QC reporting, and analysis-ready output generation.
@@ -23,27 +28,12 @@ A DEM-based workflow deriving slope, D8 flow direction, flow accumulation, and a
 
 ## Additional Portfolio Areas
 
-My broader GitHub portfolio also includes:
-
-- Hyperspectral plant-stress machine learning
-- Sentinel-2 vegetation-health monitoring
-- Geospatial land-cover classification with spatial validation
-- Sentinel-1 SAR flood mapping and change detection
-- LiDAR canopy and terrain analysis
-- Dragon fruit remote sensing and precision agriculture
+My broader GitHub portfolio also includes hyperspectral disease scouting, nutrient/stress decision support, Sentinel-2 monitoring, land-cover ML, Sentinel-1 flood mapping, LiDAR canopy analysis, and dragon-fruit remote sensing/precision agriculture.
 
 ## Technical Focus
 
-**Python | ArcPy | R | SQL | scikit-learn | ArcGIS Pro | QGIS | Google Earth Engine | PostGIS | Raster/Vector Processing | Remote Sensing | GeoAI | Hydrology | Terrain Analysis | QA/QC | Validation | Git/GitHub**
+**Python | ArcPy | R | SQL | scikit-learn | ArcGIS Pro | QGIS | Google Earth Engine | PostGIS | Remote Sensing | Agricultural Data Science | GeoAI | QA/QC | Validation | Git/GitHub**
 
 ## Portfolio Approach
 
-Each demonstration is designed to be:
-
-- Reproducible with documented dependencies
-- Clear about whether data are synthetic or real
-- Structured around an end-to-end analytical workflow
-- Explicit about assumptions and limitations
-- Easy for a technical reviewer to run and evaluate
-
-For research publications and current work, see my main GitHub profile and Google Scholar.
+Each demonstration is designed to be reproducible, explicit about synthetic versus measured data, structured around end-to-end analytical workflows, clear about assumptions/limitations, and easy for a technical reviewer to inspect.

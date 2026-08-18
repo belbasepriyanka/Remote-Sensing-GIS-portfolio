@@ -1,0 +1,3 @@
+task,model,accuracy,f1,roc_auc,mae,r2
+flowering_probability,RandomForestClassifier,0.8298611111111112,0.8478260869565217,0.8901112348413467,,
+season_yield_g,RandomForestRegressor,,,,77.12252372809205,0.8928218123872973

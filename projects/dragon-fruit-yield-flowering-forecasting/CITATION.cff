@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this portfolio workflow, please cite the project."
+title: "Dragon Fruit Yield & Flowering Forecasting"
+type: software
+authors:
+  - family-names: Belbase
+    given-names: Priyanka
+license: MIT
+date-released: 2026-08-18
