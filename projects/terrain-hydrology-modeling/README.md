@@ -1,5 +1,7 @@
 # Terrain & Hydrology Modeling Workflow
 
+**Timeline:** Hydrology/GIS analysis context **2023–2025** • Public GitHub portfolio implementation **2026**
+
 A reproducible DEM-based demonstration of terrain derivatives, slope, a flow-accumulation proxy, and a stream-network screening layer.
 
 > The committed DEM is synthetic. It demonstrates workflow structure rather than replacing hydrologically conditioned DEM processing with specialist libraries.
