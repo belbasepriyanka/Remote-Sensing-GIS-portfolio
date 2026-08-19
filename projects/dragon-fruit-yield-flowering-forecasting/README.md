@@ -2,6 +2,8 @@
 
 **Predictive ML • time series • weather • field experiments • grouped validation**
 
+**Timeline:** Research context **2023–2026** • Public GitHub portfolio implementation **2026**
+
 A recruiter-ready agricultural data-science project demonstrating how repeated field observations, management treatments, weather, nutrients, growth, and vegetation indices can be integrated to model **flowering probability and season-level yield**.
 
 > **Transparency:** all public observations and model metrics in this project are generated from synthetic demonstration data. They are not unpublished doctoral measurements or biological findings.
