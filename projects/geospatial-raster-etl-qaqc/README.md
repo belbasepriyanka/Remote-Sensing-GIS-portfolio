@@ -1,5 +1,7 @@
 # Geospatial Raster ETL & QA/QC Pipeline
 
+**Timeline:** Geospatial data-engineering context **2023–2025** • Public GitHub portfolio implementation **2026**
+
 A compact data-engineering project demonstrating raster inventory checks, CRS/resolution validation, NoData screening, QA status reporting, and analysis-ready handoff logic.
 
 > The committed inventory is synthetic metadata; the workflow is designed to be adapted to Rasterio/GDAL-backed raster collections.
