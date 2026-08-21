@@ -1,52 +1,80 @@
-# Priyanka Belbase | Remote Sensing, GIS & GeoAI Portfolio
+# Priyanka Belbase | Geospatial Data Science, Remote Sensing & Environmental Modeling
 
-A collection of applied projects in **remote sensing, GIS, Python, GeoAI, environmental modeling, agricultural data science, spatial validation, hydrology, and reproducible geospatial workflows**.
+A portfolio of applied work in **geospatial data science, GIS, Python, remote sensing, GeoAI, environmental modeling, spatial validation, hydrology, terrain analysis, QA/QC, and reproducible analytical workflows**.
+
+The portfolio is organized to demonstrate how I move from raw geospatial data through **data acquisition, cleaning, integration, modeling, validation, automation, documentation, and decision-support delivery**.
 
 > Public demonstration datasets are clearly labeled synthetic where used. They are intended to demonstrate analytical methods, software engineering, validation, and decision-support workflows without exposing private or unpublished research data.
 
-## Technical Themes
+## Core Technical Themes
 
-- Earth observation and multi-temporal remote sensing
-- GIS and spatial analysis
-- Python geospatial processing
-- Google Earth Engine
-- machine learning and spatial validation
-- agricultural remote sensing and precision agriculture
-- hyperspectral analysis
-- terrain and hydrology modeling
-- SAR flood-event mapping
-- LiDAR canopy and terrain analysis
-- QA/QC and reproducible geospatial pipelines
+- Python-based geospatial processing and workflow automation
+- Raster/vector data engineering and QA/QC
+- Remote sensing and Earth observation
+- GeoAI and machine learning
+- Spatial validation and accuracy assessment
+- Terrain and hydrology modeling
+- Environmental and land-use analysis
+- Reproducible research and documented analytical workflows
+- GIS decision support for planning, infrastructure, land, water, and conservation applications
 
 ## Featured Projects
 
-### 🌱 [Dragon Fruit Yield & Flowering Forecasting](projects/dragon-fruit-yield-flowering-forecasting)
-Field experiments, weather, spectral indicators and grouped machine-learning validation for flowering and yield-related forecasting.
-
 ### 🛰️ [Geospatial Raster ETL & QA/QC Pipeline](projects/geospatial-raster-etl-qaqc)
-Metadata validation, CRS/resolution checks, NoData screening, automated QA reporting and analysis-ready raster processing.
+**Python • raster processing • CRS/resolution validation • NoData screening • QA reporting • tests**
+
+Metadata validation, CRS/resolution checks, NoData screening, automated QA reporting, and analysis-ready raster processing. This project emphasizes reliable geospatial data handling before modeling begins.
 
 ### 🧠 [Spatial Validation Benchmark](projects/spatial-validation-benchmark)
-Random split versus spatial-block cross-validation for defensible geospatial machine-learning evaluation.
+**Python • scikit-learn • spatial holdout • accuracy assessment • reproducibility**
+
+A comparison of random train/test splitting and spatial-block validation for geospatial machine learning, showing how spatial dependence can overstate model performance.
 
 ### 💧 [Terrain & Hydrology Modeling](projects/terrain-hydrology-modeling)
-DEM processing, terrain derivatives, slope, flow-accumulation concepts, stream screening, figures and tests.
+**DEM processing • slope • flow accumulation • stream screening • hydrologic interpretation • tests**
 
-## Standalone Repositories
+A reproducible DEM-based terrain and hydrology workflow with terrain derivatives, flow concepts, validation checks, figures, and documented methods.
 
-- [Dragon Fruit Remote Sensing & Precision Agriculture](https://github.com/belbasepriyanka/dragon-fruit-remote-sensing-precision-agriculture)
-- [Dragon Fruit Nutrient & Stress Decision Support](https://github.com/belbasepriyanka/sentinel2-vegetation-health-monitoring)
-- [AI Dragon Fruit Disease Scouting & Risk Dashboard](https://github.com/belbasepriyanka/hyperspectral-plant-stress-ml)
-- [Geospatial Land-Cover ML](https://github.com/belbasepriyanka/geospatial-land-cover-ml)
-- [AI Flood Intelligence & Event Mapping](https://github.com/belbasepriyanka/sar-flood-mapping-change-detection)
-- [LiDAR Canopy & Terrain Analysis](https://github.com/belbasepriyanka/lidar-canopy-terrain-analysis)
+### 🌍 [Geospatial Land-Cover ML](https://github.com/belbasepriyanka/geospatial-land-cover-ml)
+**Remote sensing • Random Forest • feature importance • spatial validation • tests**
 
-## Research and Technical Context
+A land-cover classification workflow using multispectral-style features and spatial holdout evaluation to demonstrate defensible model validation.
 
-The portfolio is connected to broader work in Earth System Science, environmental analysis, agricultural remote sensing, plant and soil measurements, hyperspectral reflectance, hazard mapping, GIS, and machine learning. Projects are structured to separate measured research findings from public demonstration data while preserving reproducibility and methodological transparency.
+## Additional Applied Work
+
+- [AI Flood Intelligence & Event Mapping](https://github.com/belbasepriyanka/sar-flood-mapping-change-detection) — Sentinel-1 SAR change detection, terrain and permanent-water screening, uncertainty, exposure analysis, FastAPI and Streamlit
+- [LiDAR Canopy & Terrain Analysis](https://github.com/belbasepriyanka/lidar-canopy-terrain-analysis) — point-cloud processing, terrain/canopy metrics and USGS 3DEP LAS/LAZ ingestion
+- [Dragon Fruit Remote Sensing & Precision Agriculture](https://github.com/belbasepriyanka/dragon-fruit-remote-sensing-precision-agriculture) — field experiments, satellite/UAV observations, spectral indicators and grouped ML validation
+- [Dragon Fruit Nutrient & Stress Decision Support](https://github.com/belbasepriyanka/sentinel2-vegetation-health-monitoring) — Sentinel-2, soil/tissue nutrients, anomaly detection and decision support
+- [Hyperspectral Plant Stress ML](https://github.com/belbasepriyanka/hyperspectral-plant-stress-ml) — PCA, Random Forest, SVM, grouped validation and spectral visualization
+
+## Applied Experience Represented Across the Portfolio
+
+The projects collectively demonstrate capabilities relevant to real-world geospatial data science work:
+
+- Acquire and evaluate geospatial and Earth-observation data
+- Clean, transform, harmonize, and integrate raster/vector/tabular datasets
+- Build repeatable Python and GIS processing workflows
+- Apply machine-learning and statistical methods to spatial data
+- Conduct accuracy assessments and spatially appropriate validation
+- Perform terrain, hydrology, flood-risk, land-cover, and suitability analysis
+- Implement QA/QC, metadata, and data-quality checks
+- Produce maps, figures, dashboards, APIs, and technical documentation
+- Maintain reproducible code, requirements, tests, and notebooks
 
 ## Technical Toolkit
 
-**Python | R | SQL | ArcGIS Pro | QGIS | Google Earth Engine | scikit-learn | Remote Sensing | GeoAI | Hyperspectral | LiDAR | SAR | Hydrology | QA/QC | Spatial Validation | Git/GitHub**
+**Programming:** Python, R, SQL, ArcPy, JavaScript  
+**Data Science:** NumPy, Pandas, GeoPandas, scikit-learn, Matplotlib  
+**GIS:** ArcGIS Pro, ArcGIS Online/Enterprise, QGIS, PostGIS, Google Earth Engine  
+**Remote Sensing:** Sentinel-1/2, Landsat, PlanetScope, NAIP, hyperspectral/multispectral, UAV, LiDAR  
+**Environmental Modeling:** terrain, hydrology, flood risk, land-use/land-cover, suitability analysis  
+**Validation & QA/QC:** grouped/spatial holdout, confusion matrices, F1, ROC AUC, IoU, MAE, R², metadata and data-quality checks  
+**Reproducibility:** Git/GitHub, requirements files, tests, notebooks and documented workflows  
+**Delivery:** ArcGIS Dashboards, Streamlit, FastAPI, Power BI, Tableau
 
-Each project emphasizes clear data provenance, reproducible methods, validation, visual outputs, and reusable code.
+## Research and Professional Context
+
+My broader experience combines Earth System Science research with applied GIS work in land-use planning, environmental assessment, hazard mapping, terrain analysis, geodatabase development, remote sensing, field-data integration, and government-facing decision support.
+
+I use GitHub to demonstrate the technical methods behind that work: transparent data provenance, reproducible analysis, defensible validation, and clear communication of results.
