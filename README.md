@@ -20,6 +20,11 @@ The portfolio is organized to demonstrate how I move from raw geospatial data th
 
 ## Featured Projects
 
+### 🌎 [South Florida Environmental Change & Flood Risk Monitoring with GeoAI](projects/south-florida-environmental-monitoring-geoai)
+**Sentinel-1 SAR • Sentinel-2 • Landsat • GeoAI • time series • flood mapping • GIS automation**
+
+An integrated multi-sensor environmental monitoring workflow designed to analyze land-cover change, vegetation condition, surface-water dynamics, potential flood inundation, and spatial risk. The project combines Google Earth Engine, Python, Random Forest classification, spectral indices, terrain variables, satellite time series, and reusable GIS automation.
+
 ### 🛰️ [Geospatial Raster ETL & QA/QC Pipeline](projects/geospatial-raster-etl-qaqc)
 **Python • raster processing • CRS/resolution validation • NoData screening • QA reporting • tests**
 
