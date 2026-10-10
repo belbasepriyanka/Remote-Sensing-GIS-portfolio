@@ -1,29 +1,34 @@
 # National Land-Use Classification, Nepal
 
-**Historical employment/project window:** 2018–2022 according to the uploaded resume. **Code example published:** 2026. This project should **not** be labeled "2023" unless continued work during 2023 can be substantiated.
+## Project overview
 
-## Project context
-The resume describes national land-use classification and suitability mapping across 15+ municipal districts in Nepal, and building geodatabases with domains, subtypes and topology constraints. The original data, authoritative class definitions and ArcGIS geodatabase are not shared here.
+Geospatial land-use mapping and suitability analysis supporting district-level planning in Nepal. Project activities encompassed satellite image interpretation, standardizing spatial data, classification, and geodatabase quality management across more than 15 municipal districts.
 
-## Included code
-`check_geometries.py` provides an **independent example** of automated vector validation with GeoPandas. It counts null/invalid/duplicate geometry and reports CRS.
+## Technical focus
+
+- Land-use and land-cover mapping from satellite imagery
+- Spatial data standardization and coordinate reference systems
+- Geodatabase design with field domains, subtypes, and topology rules
+- Feature geometry validation and spatial data quality checks
+- Land suitability and planning applications
+
+## Included utility
+
+[check_geometries.py](check_geometries.py) is a GeoPandas-based vector QA utility. It reports feature count, dataset CRS, and counts of null, invalid, and duplicate geometries. It can be used with supported vector formats such as GeoJSON and GeoPackage.
 
 ## Run
-Install Python 3.10+, create an environment, then:
+
+Install Python 3.10 or later, then:
+
 ```bash
 python -m pip install -r requirements.txt
-python check_geometries.py your_boundaries.geojson
+python check_geometries.py input.geojson
 ```
-Use public or authorized vector features. The script reads any format supported by GeoPandas/Fiona/Pyogrio.
 
-## Recommended real-project methodology
-1. Collect approved satellite imagery, administrative boundaries and training/reference polygons.
-2. Document the original CRS and reproject into an explicitly selected project CRS.
-3. Classify according to a documented land-use legend.
-4. Build attribute constraints (coded value domains, subtypes) and topological rules in an ESRI geodatabase.
-5. Validate overlaps, gaps, self-intersections, geometry validity and attribute completeness.
-6. Compare mapped classes against independent validation samples; produce a confusion matrix and area summaries per district.
-7. Archive metadata and processing versions.
+## Quality control
 
-## Caveats and evidence still needed
-The script does not reproduce enterprise geodatabase subtypes/domains, run land-cover classification or establish any accuracy score. To publish actual historical results, obtain authorized datasets, class legend, dates, study-area boundaries and original maps.
+For an end-to-end land-use mapping workflow, review polygon validity, overlapping features, data completeness, boundary alignment, class attributes, and consistency across districts. Independently labeled samples are required to quantify classification accuracy.
+
+## Project materials
+
+Original administrative datasets, satellite scenes, mapped outputs, and enterprise geodatabase files are not distributed in this folder. The Python utility illustrates vector QA and does not implement the complete historical land-use classification process.
