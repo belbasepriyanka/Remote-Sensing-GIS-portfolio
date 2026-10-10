@@ -22,5 +22,5 @@ Fill this out using existing research notebooks, images, field datasets and empl
 - Historical project dates and evidence:
 - Known limitations:
 
-## Resume guidance
-Use a numeric result only if independently documented and attributable to the project. The original files can substantiate experience; newly committed educational examples do not establish that the scripts were authored or executed in 2023–2025.
+## Reporting results
+Use numerical results only when they are independently documented and reproducible from the project data. Repository publication dates should not be presented as dates when historical analyses were performed.
