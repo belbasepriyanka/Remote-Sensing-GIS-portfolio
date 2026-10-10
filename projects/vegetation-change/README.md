@@ -1,30 +1,36 @@
-# Sentinel-2 Vegetation Change Detection
+# Vegetation Change Detection with Sentinel-2
 
-**Proposed historical research window:** 2024 (unverified); **demonstration implementation:** 2026.
+## Overview
 
-## Goal
-Compare growing-season vegetation condition using Sentinel-2 surface reflectance and three commonly used indices: NDVI, SAVI and EVI. The `change.js` script is a reproducible **example**, not a verified result from an original field trial.
+A multispectral remote sensing workflow for comparing vegetation condition between observation periods through NDVI, SAVI, and EVI.
 
-## Input
-- `COPERNICUS/S2_SR_HARMONIZED` surface-reflectance imagery, with SCL cloud/shadow masking.
-- A demonstration polygon in south Florida, not a verified study boundary.
-- Two annual intervals, 2023 and 2024, used as placeholders.
+## Technologies
+
+Google Earth Engine, Sentinel-2 Level-2A, JavaScript, multispectral vegetation indices.
+
+## Processing steps
+
+1. Define the study area and two comparable observation periods.
+2. Query Sentinel-2 surface-reflectance scenes.
+3. Apply scene classification cloud and shadow masking.
+4. Generate a median surface-reflectance composite for each period.
+5. Calculate NDVI, SAVI, and EVI.
+6. Generate a vegetation change image using the difference between the two NDVI composites.
+
+## Vegetation indices
+
+- **NDVI**: `(NIR - RED) / (NIR + RED)`
+- **SAVI**: `1.5 × (NIR - RED) / (NIR + RED + 0.5)`
+- **EVI**: `2.5 × (NIR - RED) / (NIR + 6 × RED - 7.5 × BLUE + 1)`
 
 ## Run
-1. Copy `change.js` into https://code.earthengine.google.com/.
-2. Replace the AOI and both dates with actual study location and matched growing-season windows.
-3. Run to produce a displayed map of later NDVI minus earlier NDVI.
-4. Check the distribution and map sign: negative values indicate a decrease in estimated greenness; changes can also result from seasonality, cloud or soil.
-5. Export layers via `Export.image.toDrive` if needed.
 
-## Methods
-- NDVI: `(NIR - RED)/(NIR + RED)`.
-- SAVI: `1.5 * (NIR - RED)/(NIR + RED + 0.5)`.
-- EVI: `2.5 * (NIR - RED)/(NIR + 6*RED - 7.5*BLUE + 1)`.
-- The script creates median composites and a difference image, not a causal attribution model.
+Open [Google Earth Engine](https://code.earthengine.google.com/) and run [change.js](change.js). Update `aoi`, dates, and visualization parameters to match the region and growing seasons being studied.
 
-## QA and validation
-Use acquisition-date consistency, cloud/no-data diagnostics, CRS/scale checks, selected high-resolution reference imagery and independent field sample plots. Avoid confusing spectral change with verified land-use transitions.
+## Interpretation and QA/QC
 
-## Information required to validate resume claims
-Study-area polygon, observation dates, cloud coverage acceptance threshold, field plot locations and dates, validation methodology, sample count, effect/accuracy values. No numerical results are claimed in this repository.
+Negative NDVI differences can indicate lower greenness during the later period; positive differences can indicate increased greenness. These patterns can also reflect seasonality, soil background, atmospheric contamination, or differences in acquisition conditions. Inspect cloud and no-data coverage, ensure comparable seasons, and validate interpretations with field or reference imagery.
+
+## Data inputs
+
+The source script contains example coordinates and dates. Project-specific boundary files and matched field measurements can be connected to extend this workflow.
