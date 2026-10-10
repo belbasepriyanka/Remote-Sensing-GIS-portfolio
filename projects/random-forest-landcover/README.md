@@ -1,31 +1,35 @@
 # Random Forest Land-Cover Classification
 
-**Proposed historical window:** 2024 (not yet verified). **Demonstration code published:** 2026.
+## Overview
 
-## Purpose
-Train a Sentinel-2 Random Forest land-cover classifier in Google Earth Engine and calculate an **illustrative** holdout confusion matrix. This folder does not state a class count or result until real labels have been provided.
+A supervised land-cover mapping workflow that uses Sentinel-2 multispectral predictor bands and labeled reference data to train and assess a Random Forest classifier.
 
-## Inputs you must supply
-- A study-area polygon called `aoi`.
-- A labeled `ee.FeatureCollection` called `training`, with numeric integer `class` values.
-- A documented land-cover class legend and independent or held-out reference samples.
-- Permission to publish input data, if sensitive or project-owned.
+## Technologies
+
+Google Earth Engine, Sentinel-2 Level-2A, JavaScript, Random Forest, classification accuracy assessment.
+
+## Inputs
+
+- `aoi`: a geographic region supplied as an Earth Engine geometry.
+- `training`: an Earth Engine FeatureCollection of labeled reference features with integer `class` values.
+- A documented land-cover legend corresponding to the class labels.
+- Image dates selected for the relevant region and land-cover conditions.
+
+## Workflow
+
+1. Load multispectral bands B2, B3, B4, B8, B11, and B12.
+2. Generate an image composite from the selected dates.
+3. Extract spectral predictors at labeled training features.
+4. Separate samples into training and held-out testing groups using a reproducible random seed.
+5. Train a Random Forest classifier with 200 trees.
+6. Classify the composite and calculate a held-out confusion matrix, overall accuracy, and Cohen's kappa.
 
 ## Run
-1. Open https://code.earthengine.google.com/ and import your AOI and labeled reference features into the Imports panel.
-2. Paste `classify.js`. Match the variable names and study dates.
-3. Inspect sample counts and verify each class has enough representation in both training and test partitions.
-4. Run; see held-out confusion matrix, overall accuracy and Cohen's kappa in the console.
-5. Do **not** report numerical accuracy values until labels and methodology have been reviewed and results rerun.
 
-## Methods
-- Predictor bands: B2, B3, B4, B8, B11 and B12 (10–20 m resolution).
-- Sentinel-2 L2A median composite, Random Forest with 200 trees and reproducible random split.
-- Note: simple random train/test split can leak spatial information. For spatially correlated imagery, prefer spatially grouped cross-validation and a truly independent dataset.
-- The provided example does not implement SVM comparison, formal cloud masking or segmentation. Add these only when implemented and verified.
+Open [Google Earth Engine](https://code.earthengine.google.com/). Import `aoi` and labeled `training` features, then run [classify.js](classify.js). The script prints accuracy outputs after the inputs are provided.
 
-## Accuracy reporting
-Provide class-count, confusion matrix, per-class precision/recall, overall accuracy, kappa and number of independent validation points, plus a summary of spatial sampling methodology. Do not insert placeholder accuracy as an achievement.
+## Accuracy and limitations
 
-## Pending evidence
-Original study-area location, class definitions, sampling files, actual model configuration, reproducible independent accuracy measurements.
+Random samples drawn from neighboring geographic areas may not provide spatially independent evaluation. For mapping assessments, use independent reference samples or spatially grouped validation. The current script does not apply an SCL cloud mask, implement SVM comparison, or conduct pixel/object segmentation.
+
+No fixed number of land-cover classes or measured accuracy is provided because these depend on the training data and study design.
