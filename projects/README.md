@@ -1,32 +1,26 @@
 # Geospatial Remote Sensing Projects
 
-A collection of geospatial workflows covering satellite time-series processing, land-use classification, vegetation monitoring, supervised machine learning, and SAR-based change analysis.
+Python, GIS, and Google Earth Engine workflows for Earth observation data processing, vegetation monitoring, land-use analysis, supervised classification, and SAR change detection.
 
-Each project folder contains implementation notes, executable example scripts, input requirements, processing methods, and quality-control guidance. The workflows are intended to be adapted to documented study areas and datasets.
+## Project collection
 
-## Projects
+| Project | Focus | Technologies |
+| --- | --- | --- |
+| [Automated Sentinel-2 Time-Series Pipeline](sentinel2-timeseries/) | Cloud masking, surface reflectance, NDVI composites, image exports | Sentinel-2, Google Earth Engine, GDAL |
+| [National Land-Use Classification, Nepal](nepal-landuse/) | Land-use mapping and vector data quality checks | ArcGIS, QGIS, GeoPandas, geodatabases |
+| [Vegetation Change Detection](vegetation-change/) | Seasonal NDVI, SAVI and EVI comparisons | Sentinel-2, Google Earth Engine |
+| [Random Forest Land-Cover Classification](random-forest-landcover/) | Supervised classification and accuracy assessment | Sentinel-2, Google Earth Engine, Random Forest |
+| [Sentinel-1 SAR Change Detection](sentinel1-sar-change/) | Pre/post-event radar backscatter analysis | Sentinel-1, Google Earth Engine |
 
-| Project | Workflow |
-| --- | --- |
-| [Automated Sentinel-2 Time-Series Pipeline](sentinel2-timeseries/) | Sentinel-2 surface reflectance, cloud and shadow masking, spectral indices, GeoTIFF export, and GDAL COG conversion |
-| [National Land-Use Classification, Nepal](nepal-landuse/) | Land-use mapping project context, spatial data quality checks, and geodatabase validation methods |
-| [Vegetation Change Detection](vegetation-change/) | NDVI, SAVI, EVI and seasonal comparison using Sentinel-2 imagery |
-| [Random Forest Land-Cover Classification](random-forest-landcover/) | Sentinel-2 predictor bands, supervised classification, holdout testing, and accuracy assessment |
-| [Sentinel-1 SAR Change Detection](sentinel1-sar-change/) | Pre/post-event VV backscatter comparison and SAR interpretation checks |
+## Reproducibility
+
+Each folder includes a technical README with the workflow, input requirements, execution instructions, QA considerations, and limitations. Earth Engine scripts use configurable geographic areas and observation dates. Projects requiring labeled samples or reference datasets must be supplied with those inputs before evaluation.
 
 ## Getting started
 
-1. Open a project folder and read its README for required data, software, parameters, and limitations.
-2. Google Earth Engine examples can be run in the [Earth Engine Code Editor](https://code.earthengine.google.com/), after configuring an appropriate region and dates.
-3. The Python geometry-validation example uses GeoPandas and includes its own dependency file.
-4. Use independent reference data when reporting classification, vegetation-change, or SAR change results.
+1. Select a project and read its README.
+2. Configure the study area, acquisition dates, and reference inputs.
+3. Run the script using the specified software.
+4. Review the output and validation checks before interpreting results.
 
-## Data and reproducibility
-
-These folders contain documented example implementations of methods used in geospatial analysis. Original project datasets, exact regions, acquisition inventories, and independent reference observations are not distributed with the code. Scripts and examples were uploaded to this repository in 2026; this does not establish when individual research activities originally took place.
-
-Quantitative results are reported only after the relevant data, evaluation protocol, and measurements are available. See the [validation checklist](VALIDATION_CHECKLIST.md) for information required to reproduce and assess outputs.
-
-## Usage notes
-
-Project-specific study-area boundaries, observation dates, class definitions, and dataset permissions should be checked before running or publishing analyses. No unverified accuracy or processing-performance values are asserted here.
+The available code demonstrates processing methods; original restricted datasets and unverified numerical results are not included. The [data and validation checklist](VALIDATION_CHECKLIST.md) provides the metadata needed for further reproducibility.
