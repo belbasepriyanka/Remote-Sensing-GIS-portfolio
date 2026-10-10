@@ -1,25 +1,23 @@
-# Terrain & Hydrology Modeling Workflow
+# Terrain and Hydrology Modeling
 
-**Timeline:** Hydrology/GIS analysis context **2023–2025** • Public GitHub portfolio implementation **2026**
-
-A reproducible DEM-based demonstration of terrain derivatives, slope, a flow-accumulation proxy, and a stream-network screening layer.
-
-> The committed DEM is synthetic. It demonstrates workflow structure rather than replacing hydrologically conditioned DEM processing with specialist libraries.
-
-| DEM | Slope |
-|---|---|
-| ![](figures/dem.svg) | ![](figures/slope.svg) |
-
-| Flow proxy | Stream proxy |
-|---|---|
-| ![](figures/flow_accumulation.svg) | ![](figures/stream_network.svg) |
+Calculate slope with physical cell spacing and route contributing area using the steepest downslope D8 neighbor. Outputs include a DEM, slope, receiver grid and contributing-cell counts.
 
 ## Run
+
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python scripts/run_demo.py
 python -m pytest -q
 ```
 
-## Production extension
-For operational hydrology, use conditioned DEMs, depression handling, D8/D∞ routing, watershed delineation, and validation in ArcGIS Pro, WhiteboxTools, GRASS GIS, or TauDEM.
+The demo uses a generated DEM with a declared 10 m cell size. It saves `outputs/terrain_arrays.npz`, `outputs/summary.json` and the quicklook below.
+
+![Computed terrain products](figures/terrain_quicklook.svg)
+
+## Methods
+
+Slope is calculated from horizontal and vertical elevation gradients in metres. D8 receivers follow positive elevation drops divided by neighbor distance. Cells are accumulated in descending elevation order. Tests check slope units and contributing-area conservation on a known plane.
+
+## Interpretation
+
+This implementation leaves pits and flats as sinks and does not condition the DEM. Stream thresholds, depression handling, flat routing and watershed outlets require a separate documented design before operational hydrology. The DEM and derived outputs are synthetic and are not flood-hazard predictions.

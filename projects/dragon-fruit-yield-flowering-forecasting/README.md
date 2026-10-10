@@ -2,13 +2,12 @@
 
 **Predictive ML • time series • weather • field experiments • grouped validation**
 
-**Timeline:** Research context **2023–2026** • Public GitHub portfolio implementation **2026**
 
-A recruiter-ready agricultural data-science project demonstrating how repeated field observations, management treatments, weather, nutrients, growth, and vegetation indices can be integrated to model **flowering probability and season-level yield**.
+An agricultural data-science workflow demonstrating how repeated field observations, management treatments, weather, nutrients, growth, and vegetation indices can be integrated to model **flowering probability and season-level yield estimation**.
 
 > **Transparency:** all public observations and model metrics in this project are generated from synthetic demonstration data. They are not unpublished doctoral measurements or biological findings.
 
-## Recruiter summary
+## Technical overview
 
 - 72-plant factorial experimental structure
 - 576 repeated observations across eight time periods
@@ -70,3 +69,7 @@ Running the demo regenerates the full 576-row synthetic table and all result fil
 ## Transferability
 
 The same architecture can be retrained for another crop only with crop-specific ground truth, appropriate target definitions, and independent validation.
+
+## Prediction timing
+
+The flowering model estimates the status at an observation date using contemporaneous features. The yield model includes season-total flower and fruit counts. It is an explanatory end-of-season yield estimate, not a tested forecast before harvest. Prospective forecasting requires a cutoff date, features available before that cutoff and held-out later seasons.

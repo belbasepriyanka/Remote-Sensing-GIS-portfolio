@@ -1,0 +1,9 @@
+{
+  "data_type": "synthetic",
+  "seed": 42,
+  "coordinates": "fictional UTM grid",
+  "decline_pixels": 750,
+  "sar_candidate_pixels": 398,
+  "sar_candidate_area_m2": 159200,
+  "scope": "methods demonstration, not South Florida event results"
+}

@@ -1,0 +1,24 @@
+name: Project checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [nepal-landuse, geospatial-raster-etl-qaqc, terrain-hydrology-modeling, spatial-validation-benchmark, south-florida-environmental-monitoring-geoai, dragon-fruit-yield-flowering-forecasting]
+    defaults:
+      run:
+        working-directory: projects/${{ matrix.project }}
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q

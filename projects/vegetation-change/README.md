@@ -1,36 +1,21 @@
 # Vegetation Change Detection with Sentinel-2
 
-## Overview
+Compare surface-reflectance composites from two observation periods using NDVI, SAVI and EVI. Outputs support screening for lower or higher vegetation greenness.
 
-A multispectral remote sensing workflow for comparing vegetation condition between observation periods through NDVI, SAVI, and EVI.
+## Processing
 
-## Technologies
+[change.js](change.js) queries harmonized Sentinel-2 imagery, retains SCL classes 4–7, scales reflectance, computes three indices, and exports `delta_NDVI`, `delta_SAVI` and `delta_EVI` in a GeoTIFF. It also prints regional mean changes and displays the NDVI difference.
 
-Google Earth Engine, Sentinel-2 Level-2A, JavaScript, multispectral vegetation indices.
+| Index | Formula |
+|---|---|
+| NDVI | `(NIR - red) / (NIR + red)` |
+| SAVI | `1.5 * (NIR - red) / (NIR + red + 0.5)` |
+| EVI | `2.5 * (NIR - red) / (NIR + 6*red - 7.5*blue + 1)` |
 
-## Processing steps
+## Run and review
 
-1. Define the study area and two comparable observation periods.
-2. Query Sentinel-2 surface-reflectance scenes.
-3. Apply scene classification cloud and shadow masking.
-4. Generate a median surface-reflectance composite for each period.
-5. Calculate NDVI, SAVI, and EVI.
-6. Generate a vegetation change image using the difference between the two NDVI composites.
+Paste the script into [Earth Engine](https://code.earthengine.google.com/). Configure the AOI, dates and output CRS. Use comparable growing seasons and inspect coverage in both composites. Start the export from Tasks.
 
-## Vegetation indices
+Negative differences indicate lower index values, not a confirmed cause of vegetation loss. Weather, seasonality, background soil and cloud contamination can change the signal. Independently labeled reference observations are needed to validate a disturbance interpretation.
 
-- **NDVI**: `(NIR - RED) / (NIR + RED)`
-- **SAVI**: `1.5 × (NIR - RED) / (NIR + RED + 0.5)`
-- **EVI**: `2.5 × (NIR - RED) / (NIR + 6 × RED - 7.5 × BLUE + 1)`
-
-## Run
-
-Open [Google Earth Engine](https://code.earthengine.google.com/) and run [change.js](change.js). Update `aoi`, dates, and visualization parameters to match the region and growing seasons being studied.
-
-## Interpretation and QA/QC
-
-Negative NDVI differences can indicate lower greenness during the later period; positive differences can indicate increased greenness. These patterns can also reflect seasonality, soil background, atmospheric contamination, or differences in acquisition conditions. Inspect cloud and no-data coverage, ensure comparable seasons, and validate interpretations with field or reference imagery.
-
-## Data inputs
-
-The source script contains example coordinates and dates. Project-specific boundary files and matched field measurements can be connected to extend this workflow.
+The script uses configurable example dates and coordinates. Local array-based tests and a computed change quicklook are available in the [environmental monitoring workflow](../south-florida-environmental-monitoring-geoai/). Multi-class land-cover transitions are implemented in [the raster change module](https://github.com/belbasepriyanka/geospatial-land-cover-ml/tree/main/multitemporal_change_detection).

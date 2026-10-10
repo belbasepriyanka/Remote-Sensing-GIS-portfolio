@@ -1,0 +1,37 @@
+{
+  "features": 6,
+  "crs": "EPSG:32645",
+  "issue_counts": {
+    "POLYGON_OVERLAP": 3,
+    "DUPLICATE_GEOMETRY": 1,
+    "INVALID_GEOMETRY": 1,
+    "NULL_GEOMETRY": 1,
+    "MISSING_ATTRIBUTE": 1,
+    "INVALID_CLASS": 1
+  },
+  "topology": {
+    "checked": true,
+    "area_crs": "EPSG:32645",
+    "overlaps": [
+      {
+        "row_a": 0,
+        "row_b": 2,
+        "area_m2": 10000.0
+      },
+      {
+        "row_a": 0,
+        "row_b": 1,
+        "area_m2": 2000.0
+      },
+      {
+        "row_a": 1,
+        "row_b": 2,
+        "area_m2": 2000.0
+      }
+    ],
+    "coverage_area_m2": 20500.0,
+    "gap_area_m2": 59500.0,
+    "outside_boundary_area_m2": 0.0
+  },
+  "status": "REVIEW"
+}

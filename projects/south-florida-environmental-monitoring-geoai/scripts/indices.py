@@ -4,7 +4,8 @@ import numpy as np
 
 def normalized_difference(a, b):
     denom = a + b
-    return np.where(np.abs(denom) < 1e-10, np.nan, (a - b) / denom)
+    out = np.full(np.broadcast(a,b).shape, np.nan, dtype=float)
+    return np.divide(a-b, denom, out=out, where=np.abs(denom)>=1e-10)
 
 def ndvi(nir, red):
     return normalized_difference(nir, red)

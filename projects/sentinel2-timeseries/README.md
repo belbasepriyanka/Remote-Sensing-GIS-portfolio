@@ -1,37 +1,33 @@
 # Automated Sentinel-2 Time-Series Pipeline
 
-## Overview
-
-A Google Earth Engine workflow for processing multispectral Sentinel-2 observations, generating cloud-filtered surface reflectance composites, estimating vegetation conditions, and exporting geospatial products.
-
-## Technologies
-
-Google Earth Engine, Sentinel-2 Level-2A, JavaScript, GDAL, GeoTIFF, Linux.
+Monthly vegetation and moisture monitoring from Sentinel-2 surface reflectance. The workflow combines pixel-level quality masking, monthly compositing, observation counts, vegetation indices and cloud-optimized raster exports.
 
 ## Workflow
 
-1. Select the area of interest and observation period.
-2. Retrieve the Sentinel-2 surface-reflectance image collection.
-3. Filter scene-level cloudiness and mask cloudy, shadowed, and snow-covered pixels using scene classification (SCL).
-4. Apply the surface-reflectance scaling factor and generate a median composite.
-5. Calculate NDVI from red and near-infrared bands.
-6. Export the NDVI raster and optionally convert it to Cloud Optimized GeoTIFF (COG).
+1. Configure the area, start/end dates, scale and output CRS.
+2. Query harmonized Sentinel-2 Level-2A imagery and filter scene cloudiness.
+3. Retain SCL classes 4–7 and scale spectral bands to reflectance.
+4. Calculate NDVI, NDRE and NDMI for each observation.
+5. Produce monthly median indices and valid-observation counts.
+6. Summarize index means, scene counts and valid coverage by month.
+7. Export a CSV time series and a multiband cloud-optimized GeoTIFF.
 
-## Run the code
+Empty months retain masked index bands and zero observation counts rather than inventing observations. Output is at 20 m to match red-edge and SWIR predictors; this does not make every input band natively 20 m.
 
-Open [Google Earth Engine Code Editor](https://code.earthengine.google.com/), paste [sentinel2.js](sentinel2.js), adjust `aoi` and dates, and execute. Run the export task in Earth Engine's Tasks panel.
+## Run
 
-To convert an exported GeoTIFF to a COG using GDAL:
+Paste [sentinel2.js](sentinel2.js) into the [Earth Engine Code Editor](https://code.earthengine.google.com/). Set the intended AOI, dates and CRS, then run. Inspect printed scene counts and monthly coverage. Start exports from the Tasks panel.
 
-```bash
-gdal_translate -of COG input.tif output_cog.tif
-gdalinfo output_cog.tif
-```
+The default rectangle and dates are configurable example inputs. No completed imagery export or processing-speed result is claimed here. Earth Engine execution requires an authorized project and an interactive run.
 
-## QA/QC
+## Outputs and review
 
-Check scene selection, acquisition dates, remaining clouds and shadows, masked pixels, projection, pixel size, spectral ranges, and composite artifacts. Document all processing settings and inspect exported raster metadata.
+- `sentinel2_monthly_indices.csv`: NDVI, NDRE, NDMI, scene count and coverage fraction.
+- `sentinel2_monthly_stack.tif`: monthly index bands and observation counts.
+- An interactive time-series chart and NDVI map.
 
-## Scope
+Check coverage, seasonal comparability and remaining cloud/shadow artifacts before interpreting trends. Regional means can change when the valid-pixel footprint changes.
 
-The included script covers the Sentinel-2 workflow. Planet and NAIP imagery, multi-sensor harmonization, batch mosaicking, and independently measured processing-performance statistics are outside this script's current scope. Replace the demonstration area with the intended project boundary.
+## References
+
+[Sentinel-2 dataset and scaling](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED). For local raster QA and handoff, see [Raster ETL and QA/QC](../geospatial-raster-etl-qaqc/).

@@ -1,35 +1,34 @@
-# Random Forest Land-Cover Classification
+# Sentinel-2 Random Forest Land-Cover Classification
 
-## Overview
-
-A supervised land-cover mapping workflow that uses Sentinel-2 multispectral predictor bands and labeled reference data to train and assess a Random Forest classifier.
-
-## Technologies
-
-Google Earth Engine, Sentinel-2 Level-2A, JavaScript, Random Forest, classification accuracy assessment.
+Supervised land-cover mapping with a cloud-masked Sentinel-2 composite, spatial group holdout evaluation and GIS-ready exports.
 
 ## Inputs
 
-- `aoi`: a geographic region supplied as an Earth Engine geometry.
-- `training`: an Earth Engine FeatureCollection of labeled reference features with integer `class` values.
-- A documented land-cover legend corresponding to the class labels.
-- Image dates selected for the relevant region and land-cover conditions.
+Import `aoi` and `training` into Earth Engine. Reference features require:
 
-## Workflow
+| Field | Meaning |
+|---|---|
+| `class` | Integer class code from a documented legend |
+| `group_id` | Spatially disjoint site or block identifier |
 
-1. Load multispectral bands B2, B3, B4, B8, B11, and B12.
-2. Generate an image composite from the selected dates.
-3. Extract spectral predictors at labeled training features.
-4. Separate samples into training and held-out testing groups using a reproducible random seed.
-5. Train a Random Forest classifier with 200 trees.
-6. Classify the composite and calculate a held-out confusion matrix, overall accuracy, and Cohen's kappa.
+Use multiple groups containing representative examples of each class. Adjacent samples, repeated polygons and duplicated pixels should not be treated as independent observations. Holdout groups should represent the geographic transfer you want to evaluate.
+
+## Implemented workflow
+
+The script masks cloud/shadow/snow and scales B2, B3, B4, B8, B11 and B12 reflectance. It assigns a reproducible split to spatial groups before sampling pixels, trains a 200-tree Random Forest, and reports the held-out confusion matrix, overall accuracy, kappa, producer accuracy and consumer accuracy.
+
+It exports held-out predictions as CSV and a classified GeoTIFF. The exported map uses the evaluated training model; held-out reference groups are not used to train that map.
 
 ## Run
 
-Open [Google Earth Engine](https://code.earthengine.google.com/). Import `aoi` and labeled `training` features, then run [classify.js](classify.js). The script prints accuracy outputs after the inputs are provided.
+Open [classify.js](classify.js) in the [Earth Engine Code Editor](https://code.earthengine.google.com/). Import the two inputs, set dates and run. Review scene count, group lists and class counts first. Revise references if either set is empty or a class is absent. Start exports in the Tasks panel.
 
-## Accuracy and limitations
+For an offline runnable example with generated rasters, [the Python raster classification project](https://github.com/belbasepriyanka/geospatial-land-cover-ml#raster-classification-and-change-detection) includes inputs, maps, confusion matrices and automated tests.
 
-Random samples drawn from neighboring geographic areas may not provide spatially independent evaluation. For mapping assessments, use independent reference samples or spatially grouped validation. The current script does not apply an SCL cloud mask, implement SVM comparison, or conduct pixel/object segmentation.
+## Validation
 
-No fixed number of land-cover classes or measured accuracy is provided because these depend on the training data and study design.
+No fixed accuracy or class count is claimed without supplied references. A spatial group split reduces shared-location leakage but does not ensure independence across seasons or sensors. Area estimation and independent accuracy assessment need their own sampling design.
+
+## References
+
+[Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED) · [Reproducible group randomization](https://developers.google.com/earth-engine/apidocs/ee-featurecollection-randomcolumn)

@@ -1,0 +1,8 @@
+{
+  "data_type": "synthetic",
+  "cell_size_m": 10,
+  "mean_slope_deg": 4.095950210043859,
+  "maximum_contributing_cells": 455,
+  "sink_cells": 416,
+  "method": "D8 steepest downslope; no pit filling or flat routing"
+}

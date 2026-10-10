@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "synthetic_boundary",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 87.004036022270057, 27.122469583562797 ], [ 87.004036087079555, 27.12427527097049 ], [ 87.0, 27.124275328962884 ], [ 87.0, 27.122469641550701 ], [ 87.004036022270057, 27.122469583562797 ] ] ] } }
+]
+}
